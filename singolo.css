@@ -555,6 +555,11 @@ p.about-us__text {
     
 }
 
+.quote__form-info textarea,
+.quote__form-info input {
+    font-family: Lato, sans-serif;
+}
+
 .quote__form {
     display: flex;
     flex-direction: column;
@@ -570,12 +575,7 @@ p.about-us__text {
     font-size: 12px;
     letter-spacing: 0.1px;
     margin-bottom: 16px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 0;
-    padding-left: 15px;
-    /* width: 100%; */
-
+    padding: 11px 0 12px 15px;
     outline: none;
 	-moz-appearance: none;
 }
@@ -584,6 +584,8 @@ p.about-us__text {
 ::-moz-placeholder { color:#f48c8f; font-family: Lato, sans-serif;}
 :-ms-input-placeholder { color:#f48c8f; font-family: Lato, sans-serif;}
 :-moz-placeholder { color:#f48c8f; font-family: Lato, sans-serif;}
+
+
 
 
 input:-webkit-autofill {
@@ -596,7 +598,7 @@ input:-webkit-autofill {
 textarea.form-style  {
     letter-spacing: -.05px;
     margin-bottom: 16px;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     padding-top: 10px;
     resize: none;
     outline: none;
@@ -635,7 +637,7 @@ textarea.form-style  {
     letter-spacing: 0px;
     line-height: 21.5px;
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .contact-info-text {

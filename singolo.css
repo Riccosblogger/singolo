@@ -679,15 +679,18 @@ textarea.form-style  {
 .info__location-text {
     /* margin-top: 1px; */
     margin-left: 4px;
+    
 }
 
 .info__phone-text {
     margin-top: -1px;
     margin-left: 2px;
+    text-decoration: none;
 }
 
 .info__mail-text {
     margin-left: 4px;
+    text-decoration: none;
 }
 
 footer {

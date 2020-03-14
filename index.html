@@ -15,10 +15,10 @@
                 <nav class="header__menu">
                     <ul>
                         <li class="menu-items item-active"><a href="#">HOME</a></li>
-                        <li class="menu-items"><a href="#">SERVICES</a></li>
-                        <li class="menu-items"><a href="#">PORTFILIO</a></li>
-                        <li class="menu-items"><a href="#">ABOUT</a></li>
-                        <li class="menu-items"><a href="#">CONTACT</a></li>
+                        <li class="menu-items"><a href="#services">SERVICES</a></li>
+                        <li class="menu-items"><a href="#portfolio">PORTFILIO</a></li>
+                        <li class="menu-items"><a href="#about">ABOUT</a></li>
+                        <li class="menu-items"><a href="#quote">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
@@ -30,26 +30,40 @@
                     <button class="button-left"><img src="assets/img/arrow-left.png" alt=""></button>
                 </div>
 
-                <div class="iphone-block">
-                    <div class="iphone">
-                        <div class="cam"></div>
-                        <div class="speaker"></div>
-                        <div class="screen"></div>
-                        <div class="iphone-button">
-                            <div class="square"></div>
+                <div class="slider__content">
+
+                    <div class="slide">
+                        <div class="iphone-block">
+                            <div class="iphone">
+                                <div class="cam"></div>
+                                <div class="speaker"></div>
+                                <div status="ON" class="screen"></div>
+                                <div class="iphone-button">
+                                    <div class="square"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iphone-block-hor">
+                            <div class="iphone iphone-hor">
+                                <div class="cam cam-hor"></div>
+                                <div class="speaker speaker-hor"></div>
+                                <div status="ON" class="screen screen-hor"></div>
+                                <div class="iphone-button iphone-button-hor">
+                                    <div class="square"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-            </div>
-            <div class="iphone-block-hor">
-                <div class="iphone iphone-hor">
-                    <div class="cam cam-hor"></div>
-                    <div class="speaker speaker-hor"></div>
-                    <div class="screen screen-hor"></div>
-                    <div class="iphone-button iphone-button-hor">
-                        <div class="square"></div>
+                
+
+                    <div class="slide">
+                        <div class="slide-pic">
+                            <img src="/assets/img/Slide2.png" alt="Slide2">
+                        </div>
                     </div>
+
                 </div>
-            </div>
+
 
                 <div class="slider__arrows slider__arrows-right">
                     <img src="assets/img/arrow-right.png" alt="">
@@ -58,8 +72,8 @@
     </section>
 
     <section class="services">
-        <div class="wrapper services__block">
-            <h2 class="services__title">Our Services</h2>
+        <div class="wrapper services__block"><a name="services"></a>
+            <h2 class="services__title">Our Services</h2><a name="services"></a>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
                  Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget
                   lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo,
@@ -150,6 +164,7 @@
 
     <section class="portfolio">
         <div class="wrapper portfolio__block">
+            <a name="portfolio"></a>
             <h2 class="portfolio__title">Portfolio</h2>
             <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
             <div class="portfolio__buttons">
@@ -171,7 +186,7 @@
                 <img src="assets/img/portfolio10.png" alt="pic10" class="portfolio__pic">
                 <img src="assets/img/portfolio11.png" alt="pic11" class="portfolio__pic">
                 <img src="assets/img/portfolio12.png" alt="pic12" class="portfolio__pic">
-                <img src="assets/img/portfolio12.png" alt="pic12" class="portfolio__pic"> <!-- 13-й -->
+                <!-- <img src="assets/img/portfolio12.png" alt="pic12" class="portfolio__pic"> 13-й -->
             </div>
 
         </div>
@@ -179,6 +194,7 @@
 
     <section class="about-us">
         <div class="wrapper about-us__block">
+            <a name="about"></a>
             <h2 class="about-us__title">About Us</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis,
                  non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
@@ -230,6 +246,7 @@
             
     <section class="quote">
         <div class="wrapper quote__block">
+            <a name="quote"></a>
             <h2 class="quote__title">Get a Quote</h2>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis,
                  non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
@@ -276,6 +293,6 @@
             </div>
         </div>
     </footer>
-      
+<script src='script.js'></script>
 </body>
 </html>

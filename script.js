@@ -7,8 +7,6 @@ MENU.forEach(el => {
   })
 });
 
-
-
 const BUTTON1 = document.querySelectorAll('div.iphone-button')[0];
 const BUTTON2 = document.querySelectorAll('div.iphone-button')[1];
 
@@ -16,7 +14,6 @@ const SCREEN1 = document.querySelectorAll('div.screen')[0];
 const SCREEN2 = document.querySelectorAll('div.screen')[1];
 
 BUTTON1.addEventListener('click', (event) => {
-
   if (SCREEN1.getAttribute('status')=='ON'){
     SCREEN1.classList.add('screen-black');
     SCREEN1.classList.remove('screen');
@@ -31,7 +28,6 @@ BUTTON1.addEventListener('click', (event) => {
 
 
 BUTTON2.addEventListener('click', (event) => {
-
   if (SCREEN2.getAttribute('status')=='ON'){
     SCREEN2.classList.add('screen-hor-black');
     SCREEN2.classList.remove('screen-hor');
@@ -53,7 +49,6 @@ PORT_PICS.forEach(el => {
     event.target.classList.add('portfolio__pic-active');
   })
 });
-
 
 // переключение Portfolio
 const PORT_BTNS = document.querySelectorAll('div.portfolio__button');
@@ -91,14 +86,14 @@ PORT_BTNS.forEach(el => {
   })
 });
 
-
-
-// слайдер, будь он неладен
+// слайдер
 
 const BUTTON_LEFT = document.querySelectorAll('div.slider__arrows')[0];
 const BUTTON_RIGHT = document.querySelectorAll('div.slider__arrows')[1];
 
 let slides = document.querySelectorAll('div.slider__content>div'); // выбрали оба слайда
+
+const BG = document.querySelectorAll('section.slider')[0];
 
 //console.log(slides);
 
@@ -110,9 +105,9 @@ for (let i=0; i<slides.length; i++) {
 }
 
 let step = 0;
-let offset = 0;
+//let offset = 0;
 
-function draw() {
+function draw(offset) {
   //alert('Смещение: ' + offset * 810 + 'px');
   slider[step].style.left = offset * 810 + 'px';
   document.querySelector('div.slider__content').appendChild(slider[step]);
@@ -123,22 +118,85 @@ function draw() {
 
 function right() {
   BUTTON_RIGHT.onclick = null;
-  offset = 1;
-  draw();
+  //offset = 1;
+  draw(1);
   let slides2 = document.querySelectorAll('div.slider__content>div');
-
   for (let i=0; i<slides2.length; i++) {
+    slides2[i].offsetWidth = slides2[i].offsetWidth;
     slides2[i].style.left = i * 810 - 810 + 'px';
   }
+
+  if (BG.classList.contains('slider-blue')) BG.classList.remove('slider-blue');
+  else BG.classList.add('slider-blue');
+  
   setTimeout(function(){
     slides2[0].remove();
     BUTTON_RIGHT.onclick = right;
   },700);
-
-  
 }
 
-draw(); // рисуем первый слайд
+function left() {
+  BUTTON_RIGHT.onclick = null;
+  //offset = 1;
+  draw(-1);
+  let slides2 = document.querySelectorAll('div.slider__content>div');
+  for (let i=0; i<slides2.length; i++) {
+    slides2[i].offsetWidth = slides2[i].offsetWidth;
+    slides2[i].style.left = 810 - (i * 810) + 'px';
+  }
 
-//BUTTON_LEFT.onclick = left;
+  if (BG.classList.contains('slider-blue')) BG.classList.remove('slider-blue');
+  else BG.classList.add('slider-blue');
+
+  setTimeout(function(){
+    slides2[0].remove();
+    BUTTON_RIGHT.onclick = right;
+  },700);
+}
+
+draw(0); // рисуем первый слайд
+BUTTON_LEFT.onclick = left;
 BUTTON_RIGHT.onclick = right;
+
+// отправка формы
+
+const WID_SEND = document.querySelectorAll('.m_window')[0]; // окно
+const BTN_SEND = document.querySelectorAll('.form-button')[0]; // кнопка SEND
+const BTN_OK = document.querySelectorAll('.m_window__submit-btn')[0]; // кнопка OK
+
+const NAME = document.querySelectorAll('.quote__form>input')[0]; // поле NAME
+const EMAIL = document.querySelectorAll('.quote__form>input')[1]; // поле EMAIL
+const SUBJECT = document.querySelectorAll('.quote__form>input')[2]; // поле SUBJECT
+const DESCRIBE = document.querySelectorAll('.quote__form>textarea')[0]; // поле DESCRIBE
+
+const FORM = document.querySelector('.quote__form'); // вся форма
+FORM.addEventListener('submit', (el) => el.preventDefault()); // перехватываем отправку формы
+
+const MODAL_SUBJECT = document.querySelectorAll('.m_window__subject')[0]; // Тема: ...
+const MODAL_DESCRIBE = document.querySelectorAll('.m_window__describe')[0]; // Описание: ...
+
+
+function formClean () {
+  NAME.value = '';
+  EMAIL.value = '';
+  SUBJECT.value = '';
+  DESCRIBE.value = '';
+  MODAL_SUBJECT.textContent = 'Без темы';
+  MODAL_DESCRIBE.textContent = 'Без описания';
+}
+
+BTN_SEND.addEventListener('click', (event) => {
+  if (NAME.value != '' && EMAIL.value != '' ) {
+    WID_SEND.classList.remove('m_window-none');
+    // берём значения из формы
+    if (SUBJECT.value!='') {MODAL_SUBJECT.textContent = 'Тема: ' + SUBJECT.value;}
+    if (DESCRIBE.value != '') {MODAL_DESCRIBE.textContent = 'Описание: ' + DESCRIBE.value;}    
+  }
+});
+
+
+BTN_OK.addEventListener('click', (event) => {
+  WID_SEND.classList.add('m_window-none');
+  formClean ();
+});
+ 

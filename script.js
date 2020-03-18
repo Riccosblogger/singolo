@@ -6,10 +6,9 @@ function onscroll(event) {
   const links = document.querySelectorAll('li.menu-items>a');
 
   divs.forEach((el) => {
-    if (el.offsetTop <= curPos && (el.offsetTop + el.offsetHeight) > curPos) {
+    if (el.offsetTop-95 <= curPos && (el.offsetTop + el.offsetHeight) > curPos) {
       links.forEach((a) => {
         a.parentNode.classList.remove('item-active');
-        console.log(a.getAttribute('href').slice(1));
         if (el.getAttribute('id') === a.getAttribute('href').slice(1)) {
           a.parentNode.classList.add('item-active');
         }

@@ -1,3 +1,24 @@
+document.addEventListener('scroll', onscroll);
+
+function onscroll(event) {
+  const curPos = window.scrollY;
+  const divs = document.querySelectorAll('section'); // наши секции
+  const links = document.querySelectorAll('li.menu-items>a');
+
+  divs.forEach((el) => {
+    if (el.offsetTop <= curPos && (el.offsetTop + el.offsetHeight) > curPos) {
+      links.forEach((a) => {
+        a.parentNode.classList.remove('item-active');
+        console.log(a.getAttribute('href').slice(1));
+        if (el.getAttribute('id') === a.getAttribute('href').slice(1)) {
+          a.parentNode.classList.add('item-active');
+        }
+      })
+    }
+  })
+}
+
+
 const MENU = document.querySelectorAll('li.menu-items');
 MENU.forEach(el => {
   el.addEventListener('click', (event) => {
